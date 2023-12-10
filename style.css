@@ -22,7 +22,18 @@ body {
 }
 
 #app {
-  min-width: 600px;
+  width: 960px;
+  display: flex;
+  justify-content: center;
+
+  .left-panel {
+    flex: 1 0 auto;
+    padding-right: 40px;
+  }
+
+  .right-panel {
+    flex: 0 0 300px;
+  }
 }
 
 .temperature-card {
@@ -65,6 +76,7 @@ body {
 
 #temperature-table {
   width: 100%;
+  margin-top: 4px;
   text-align: center;
   border-collapse: collapse;
 }
@@ -74,8 +86,8 @@ body {
 }
 
 #temperature-table tbody td {
-  height: 40px;
-  font-size: 16px;
+  height: 36px;
+  font-size: 14px;
   border-top: 1px solid #707073;;
 }
 
