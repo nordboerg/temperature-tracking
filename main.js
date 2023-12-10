@@ -1,6 +1,10 @@
 import './style.css';
 import TemperatureCard from './components/TemperatureCard.js';
 import TemperatureTable from './components/TemperatureTable.js';
+import { getCurrentTemperature } from './services/temperature.service.js';
+import { poll } from './services/utils.js';
+
+const POLL_INTERVAL = 1000;
 
 const reducer = (action, state) => {
   switch (action.type) {
@@ -49,18 +53,13 @@ function createStore(reducer, initialState) {
 
 const { subscribe, dispatch, getState } = createStore(reducer, []);
 
+const addReadingAction = (payload) => ({
+  type: 'add',
+  payload,
+});
+const addReading = (reading) => dispatch(addReadingAction(reading));
+
 subscribe(TemperatureCard);
 subscribe(TemperatureTable);
 
-for (let i = 0; i <= 10; i++) {
-  dispatch({
-    type: 'add',
-    payload: {
-      last_updated: new Date().toLocaleString(),
-      temp_c: Math.ceil(Math.random() * 10),
-      text: 'Clear',
-      icon: 'http://cdn.weatherapi.com/weather/64x64/night/113.png',
-      reading_date: new Date(),
-    },
-  });
-}
+void poll(getCurrentTemperature, addReading, POLL_INTERVAL);
