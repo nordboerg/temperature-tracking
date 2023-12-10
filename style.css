@@ -24,3 +24,58 @@ body {
 #app {
   min-width: 600px;
 }
+
+.temperature-card {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    .current-temperature {
+      font-size: 64px;
+      padding: 0 4px;
+    }
+
+    .unit {
+      align-self: flex-start;
+      padding-top: 18px;
+      font-size: 24px;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+
+    .city {
+      font-size: 32px;
+    }
+
+    .last-read-time, .condition-text {
+      color: #9aa0a6;
+    }
+  }
+}
+
+#temperature-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+#temperature-table thead th {
+  height: 40px;
+}
+
+#temperature-table tbody td {
+  height: 40px;
+  font-size: 16px;
+  border-top: 1px solid #707073;;
+}
+
