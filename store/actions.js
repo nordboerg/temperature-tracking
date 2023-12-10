@@ -1,5 +1,5 @@
 const addReadingAction = (payload) => ({
-  type: 'add',
+  type: 'addReading',
   payload,
 });
 

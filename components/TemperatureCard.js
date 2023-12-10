@@ -1,14 +1,13 @@
 const TemperatureCard = {
-  reading: null,
   selector: function (state) {
-    this.reading = state[state.length - 1];
+    return state[state.length - 1];
   },
-  render: function () {
-    if (!this.reading) {
+  render: function (reading) {
+    if (!reading) {
       return;
     }
 
-    const { last_updated, temp_c, text, icon } = this.reading;
+    const { last_updated, temp_c, text, icon } = reading;
 
     document.getElementById('temperature-card-container').innerHTML = `
       <div class="temperature-card">

@@ -1,7 +1,7 @@
 const reducer = (action, state) => {
   switch (action.type) {
-    case 'add': {
-      return [...state, action.payload];
+    case 'addReading': {
+      return [...state, action.payload].slice(-100);
     }
     default: {
       return state;

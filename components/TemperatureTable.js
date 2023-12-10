@@ -1,12 +1,11 @@
 const TemperatureTable = {
-  readings: [],
   selector: function (state) {
-    this.readings = state.map(({ temp_c, reading_date }) => ({
+    return state.slice(-10).map(({ temp_c, reading_date }) => ({
       temp_c,
       reading_date,
     }));
   },
-  render: function () {
+  render: function (readings) {
     document.getElementById('temperature-table-container').innerHTML = `
       <table id="temperature-table">
         <thead>
@@ -15,7 +14,7 @@ const TemperatureTable = {
           </tr>
         </thead>
         <tbody>
-        ${this.readings.reduce((rows, { temp_c, reading_date }) => {
+        ${readings.reduce((rows, { temp_c, reading_date }) => {
           rows += `
             <tr>
               <td>${temp_c} °C</td>

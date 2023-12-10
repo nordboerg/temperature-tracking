@@ -10,8 +10,7 @@ function createStore(reducer, initialState) {
     state = reducer(action, state);
 
     subscribers.forEach((component) => {
-      component.selector(state);
-      component.render();
+      component.render(component.selector(state));
     });
   }
 
