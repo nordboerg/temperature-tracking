@@ -1,9 +1,12 @@
 const TemperatureTable = {
   selector: function (state) {
-    return state.slice(-10).map(({ temp_c, reading_date }) => ({
-      temp_c,
-      reading_date,
-    }));
+    return state
+      .slice(-10)
+      .map(({ temp_c, reading_date }) => ({
+        temp_c,
+        reading_date,
+      }))
+      .reverse();
   },
   render: function (readings) {
     document.getElementById('temperature-table-container').innerHTML = `
