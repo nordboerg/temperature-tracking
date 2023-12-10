@@ -4,7 +4,7 @@ const TemperatureCard = {
   },
   render: function (reading) {
     if (!reading) {
-      container.innerHTML = 'Loading...';
+      return;
     }
 
     const { last_updated, temp_c, text, icon } = reading;
