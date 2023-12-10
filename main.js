@@ -1,5 +1,6 @@
 import './style.css';
 import TemperatureCard from './components/TemperatureCard.js';
+import TemperatureTable from './components/TemperatureTable.js';
 
 const reducer = (action, state) => {
   switch (action.type) {
@@ -49,13 +50,17 @@ function createStore(reducer, initialState) {
 const { subscribe, dispatch, getState } = createStore(reducer, []);
 
 subscribe(TemperatureCard);
+subscribe(TemperatureTable);
 
-dispatch({
-  type: 'add',
-  payload: {
-    last_updated: new Date().toLocaleString(),
-    temp_c: 10,
-    text: 'Clear',
-    icon: 'http://cdn.weatherapi.com/weather/64x64/night/113.png',
-  },
-});
+for (let i = 0; i <= 10; i++) {
+  dispatch({
+    type: 'add',
+    payload: {
+      last_updated: new Date().toLocaleString(),
+      temp_c: Math.ceil(Math.random() * 10),
+      text: 'Clear',
+      icon: 'http://cdn.weatherapi.com/weather/64x64/night/113.png',
+      reading_date: new Date(),
+    },
+  });
+}
