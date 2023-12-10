@@ -7,10 +7,10 @@ import Chart from './src/components/Chart/Chart.js';
 import { addReadingAction } from './src/store/actions.js';
 import { getCurrentTemperature } from './src/services/temperature.service.js';
 import { poll } from './src/services/utils.js';
-
-const POLL_INTERVAL = 1000;
+import { POLL_INTERVAL } from './src/constants.js';
 
 const { subscribe, dispatch } = createStore(reducer, []);
+
 const addReading = (reading) => dispatch(addReadingAction(reading));
 
 function setupComponent(component) {
