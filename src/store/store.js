@@ -1,10 +1,8 @@
+import { reducer } from './reducer.js';
+
 function createStore(reducer, initialState) {
   let state = initialState;
   const subscribers = new Set();
-
-  function getState() {
-    return state;
-  }
 
   function dispatch(action) {
     state = reducer(action, state);
@@ -27,8 +25,9 @@ function createStore(reducer, initialState) {
   return {
     subscribe,
     dispatch,
-    getState,
   };
 }
 
-export { createStore };
+const { subscribe, dispatch } = createStore(reducer, []);
+
+export { subscribe, dispatch };
