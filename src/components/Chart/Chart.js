@@ -11,12 +11,12 @@ const Chart = {
   selector: function (state) {
     return state[state.length - 1];
   },
-  render: function (reading) {
-    if (!reading) {
+  render: function (readings) {
+    if (!readings) {
       return;
     }
 
-    const { temp_c, reading_date } = reading;
+    const { temp_c, reading_date } = readings[readings.length - 1];
     const shiftPoints = chart.series[0].data.length >= STORED_READING_LIMIT;
 
     chart.series[0].addPoint([reading_date.getTime(), temp_c], true, shiftPoints);

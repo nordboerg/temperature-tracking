@@ -2,12 +2,12 @@ const TemperatureCard = {
   selector: function (state) {
     return state[state.length - 1];
   },
-  render: function (reading) {
-    if (!reading) {
+  render: function (readings) {
+    if (!readings) {
       return;
     }
 
-    const { last_updated, temp_c, text, icon } = reading;
+    const { last_updated, temp_c, text, icon } = readings[readings.length - 1];
     const day = new Date(last_updated).toLocaleDateString(undefined, { weekday: 'long' });
     const time = new Date(last_updated).toLocaleTimeString();
 

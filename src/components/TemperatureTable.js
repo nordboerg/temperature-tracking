@@ -1,15 +1,25 @@
+const selectOptions = [10, 25, 50, 100];
+
 const TemperatureTable = {
-  selector: function (state) {
-    return state
-      .slice(-10)
+  numberOfRecords: 10,
+  render: function (state) {
+    const readings = state
+      .slice(-this.numberOfRecords)
       .map(({ temp_c, reading_date }) => ({
         temp_c,
         reading_date,
       }))
       .reverse();
-  },
-  render: function (readings) {
+
     document.getElementById('temperature-table-container').innerHTML = `
+      <select name="records" id="record-select">
+        ${selectOptions.reduce((options, option) => {
+          options += `<option value="${option}" ${
+            option === this.numberOfRecords && 'selected'
+          }>${option}</option>`;
+          return options;
+        }, '')}
+      </select>
       <table id="temperature-table">
         <thead>
           <tr>
@@ -29,6 +39,11 @@ const TemperatureTable = {
         </tbody>
       </table>
     `;
+
+    document.getElementById('record-select').addEventListener('change', (event) => {
+      this.numberOfRecords = Number(event.target.value);
+      this.render(state);
+    });
   },
 };
 

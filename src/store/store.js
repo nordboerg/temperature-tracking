@@ -8,7 +8,7 @@ function createStore(reducer, initialState) {
     state = reducer(action, state);
 
     subscribers.forEach((component) => {
-      component.render(component.selector(state));
+      component.render(state);
     });
   }
 
