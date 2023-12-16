@@ -9,12 +9,15 @@ import { poll } from './src/services/utils.js';
 
 const city = 'London';
 
-function setupComponent(component) {
+const setupComponent = (component) => {
   if (typeof component.mount === 'function') {
+    // attach the static part of the component's markup to the DOM
     component.mount();
   }
   subscribe(component);
-}
+};
+
+const addReading = (reading) => dispatch(addReadingAction(reading));
 
 setupComponent(TemperatureCard);
 setupComponent(TemperatureTable);
