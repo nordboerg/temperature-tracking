@@ -1,6 +1,6 @@
 const TemperatureCard = {
   render(readings) {
-    if (!readings) {
+    if (!readings.length) {
       return;
     }
 
