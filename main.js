@@ -18,15 +18,4 @@ setupComponent(TemperatureCard);
 setupComponent(TemperatureTable);
 setupComponent(Chart);
 
-// uncomment this to see some movement in the chart
-// for (let i = 0; i < 20; i++) {
-//   addReading({
-//     last_updated: new Date().toLocaleString(),
-//     temp_c: Math.ceil(Math.random() * 5),
-//     text: 'Clear',
-//     icon: 'http://cdn.weatherapi.com/weather/64x64/night/113.png',
-//     reading_date: new Date(),
-//   });
-// }
-
 void poll(getCurrentTemperature, addReading, POLL_INTERVAL);
