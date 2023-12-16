@@ -35,7 +35,7 @@ const TemperatureTable = {
           return options;
         }, '')}
       </select>
-      <table id="temperature-table">
+      <table class="temperature-table">
         <thead>
           <tr>
             <th>Reading</th><th>Date/Time</th>

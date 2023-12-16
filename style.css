@@ -77,22 +77,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-}
 
-#temperature-table {
-  width: 100%;
-  margin-top: 4px;
-  text-align: center;
-  border-collapse: collapse;
-}
+  .temperature-table {
+    width: 100%;
+    margin-top: 4px;
+    text-align: center;
+    border-collapse: collapse;
+  }
 
-#temperature-table thead th {
-  height: 40px;
-}
+  .temperature-table thead th {
+    height: 40px;
+  }
 
-#temperature-table tbody td {
-  height: 36px;
-  font-size: 14px;
-  border-top: 1px solid #707073;;
+  .temperature-table tbody td {
+    height: 36px;
+    font-size: 14px;
+    border-top: 1px solid #707073;;
+  }
 }
-
