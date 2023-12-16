@@ -1,3 +1,5 @@
+import { POLL_INTERVAL } from '../constants.js';
+
 const parseTemperatureData = (data) => {
   const {
     current: {
@@ -16,12 +18,15 @@ const parseTemperatureData = (data) => {
   };
 };
 
-async function poll(apiCall, callback, ms) {
-  const result = await apiCall();
-  callback(result);
+async function poll(city, apiCall, callback, ms = POLL_INTERVAL) {
+  const result = await apiCall(city);
 
-  await new Promise((resolve) => setTimeout(resolve, ms));
-  await poll(apiCall, callback, ms);
+  if (result) {
+    callback(result);
+
+    await new Promise((resolve) => setTimeout(resolve, ms));
+    await poll(city, apiCall, callback, ms);
+  }
 }
 
 export { parseTemperatureData, poll };

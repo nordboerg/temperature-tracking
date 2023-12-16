@@ -6,9 +6,8 @@ import Chart from './src/components/Chart/Chart.js';
 import { addReadingAction } from './src/store/actions.js';
 import { getCurrentTemperature } from './src/services/temperature.service.js';
 import { poll } from './src/services/utils.js';
-import { POLL_INTERVAL } from './src/constants.js';
 
-const addReading = (reading) => dispatch(addReadingAction(reading));
+const city = 'London';
 
 function setupComponent(component) {
   if (typeof component.mount === 'function') {
@@ -21,4 +20,4 @@ setupComponent(TemperatureCard);
 setupComponent(TemperatureTable);
 setupComponent(Chart);
 
-void poll(getCurrentTemperature, addReading, POLL_INTERVAL);
+void poll(city, getCurrentTemperature, addReading);

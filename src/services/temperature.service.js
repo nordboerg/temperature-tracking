@@ -1,9 +1,9 @@
 import { parseTemperatureData } from './utils.js';
 
-const getCurrentTemperature = async () => {
+const getCurrentTemperature = async (city) => {
   try {
     const response = await fetch(
-      'http://api.weatherapi.com/v1/current.json?key=c8d34109c07e47d5a41121136230712&q=London',
+      `http://api.weatherapi.com/v1/current.json?key=c8d34109c07e47d5a41121136230712&q=${city}`,
     );
     const data = await response.json();
 
