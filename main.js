@@ -11,6 +11,9 @@ import { POLL_INTERVAL } from './src/constants.js';
 const addReading = (reading) => dispatch(addReadingAction(reading));
 
 function setupComponent(component) {
+  if (typeof component.mount === 'function') {
+    component.mount();
+  }
   subscribe(component);
 }
 
