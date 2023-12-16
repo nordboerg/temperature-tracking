@@ -4,13 +4,7 @@ const isSelected = (option, n) => (option === n ? 'selected' : null);
 const TemperatureTable = {
   numberOfRecords: 10,
   render(state) {
-    const readings = state
-      .slice(-this.numberOfRecords)
-      .map(({ temp_c, reading_date }) => ({
-        temp_c,
-        reading_date,
-      }))
-      .reverse();
+    const readings = state.slice(-this.numberOfRecords).reverse();
 
     document.getElementById('temperature-table-container').innerHTML = `
       <select name="records" id="record-select">
