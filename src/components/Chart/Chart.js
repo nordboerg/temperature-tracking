@@ -8,10 +8,7 @@ initChartTheme(Highcharts);
 const chart = Highcharts.chart('chart-container', chartConfig);
 
 const Chart = {
-  selector: function (state) {
-    return state[state.length - 1];
-  },
-  render: function (readings) {
+  render(readings) {
     if (!readings) {
       return;
     }

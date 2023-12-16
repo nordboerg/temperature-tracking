@@ -2,7 +2,7 @@ const selectOptions = [10, 25, 50, 100];
 
 const TemperatureTable = {
   numberOfRecords: 10,
-  render: function (state) {
+  render(state) {
     const readings = state
       .slice(-this.numberOfRecords)
       .map(({ temp_c, reading_date }) => ({
