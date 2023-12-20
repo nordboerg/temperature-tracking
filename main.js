@@ -8,7 +8,7 @@ import { getCurrentTemperature } from './src/services/temperature.service.js';
 import { getCurrentLocation } from './src/services/location.service.js';
 import { poll } from './src/services/utils.js';
 
-const location = await getCurrentLocation();
+const location = (await getCurrentLocation()) || 'London';
 
 const setupComponent = (component) => {
   if (typeof component.mount === 'function') {

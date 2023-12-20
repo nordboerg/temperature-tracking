@@ -4,7 +4,7 @@ const geoFindMe = () => {
       navigator.geolocation.getCurrentPosition(success, error),
     );
   } else {
-    console.error('geolocation is not sup[ported by this browser');
+    throw new Error('geolocation is not supported by this browser');
   }
 };
 
