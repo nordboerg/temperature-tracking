@@ -1,3 +1,5 @@
+import { getState } from '../store/store.js';
+
 const selectOptions = [10, 25, 50, 100];
 const isSelected = (option, n) => (option === n ? 'selected' : null);
 
@@ -17,11 +19,6 @@ const TemperatureTable = {
         return rows;
       }, '')}
     `;
-
-    document.getElementById('record-select').addEventListener('change', (event) => {
-      this.numberOfRecords = Number(event.target.value);
-      this.render(state);
-    });
   },
   mount() {
     document.getElementById('temperature-table-container').innerHTML = `
@@ -44,6 +41,11 @@ const TemperatureTable = {
         <tbody id="table-body"></tbody>
       </table>
     `;
+
+    document.getElementById('record-select').addEventListener('change', (event) => {
+      this.numberOfRecords = Number(event.target.value);
+      this.render(getState());
+    });
   },
 };
 

@@ -4,6 +4,10 @@ function createStore(reducer, initialState) {
   let state = initialState;
   const subscribers = new Set();
 
+  function getState() {
+    return state;
+  }
+
   function dispatch(action) {
     state = reducer(action, state);
 
@@ -25,9 +29,10 @@ function createStore(reducer, initialState) {
   return {
     subscribe,
     dispatch,
+    getState,
   };
 }
 
-const { subscribe, dispatch } = createStore(reducer, []);
+const { subscribe, dispatch, getState } = createStore(reducer, []);
 
-export { subscribe, dispatch };
+export { subscribe, dispatch, getState };
