@@ -5,9 +5,10 @@ import TemperatureTable from './src/components/TemperatureTable.js';
 import Chart from './src/components/Chart/Chart.js';
 import { addReadingAction } from './src/store/actions.js';
 import { getCurrentTemperature } from './src/services/temperature.service.js';
+import { getCurrentLocation } from './src/services/location.service.js';
 import { poll } from './src/services/utils.js';
 
-const city = 'London';
+const location = await getCurrentLocation();
 
 const setupComponent = (component) => {
   if (typeof component.mount === 'function') {
@@ -23,4 +24,4 @@ setupComponent(TemperatureCard);
 setupComponent(TemperatureTable);
 setupComponent(Chart);
 
-void poll(city, getCurrentTemperature, addReading);
+void poll(location, getCurrentTemperature, addReading);

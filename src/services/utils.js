@@ -7,6 +7,7 @@ const parseTemperatureData = (data) => {
       temp_c,
       condition: { text, icon },
     },
+    location: { name: location },
   } = data;
 
   return {
@@ -15,6 +16,7 @@ const parseTemperatureData = (data) => {
     text,
     icon,
     reading_date: new Date(),
+    location,
   };
 };
 
